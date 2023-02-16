@@ -20,12 +20,21 @@ def open_file():
     file.set(os.path.basename(file_path.name))
     percent.set("")
     adhar.pack_forget()
+    window.update_idletasks()
+    if file_path or logo is not None:
+        pass
+def open_logo():
+    global logo
+    logo = askopenfile(mode='r')
+    #print(file_path)
+    image.set(os.path.basename(logo.name))
+    percent.set("")
+    adhar.pack_forget()
     button_status.set("Create QR Code")
     button.pack()
     window.update_idletasks()
-    if file_path is not None:
+    if logo or file_path is not None:
         pass
-    
 def close():
     window.quit()
     exit()
@@ -79,13 +88,16 @@ def start():
 
 #Window Interface
 window = Tk()
+
 window.title("BR+A-Virtual QR Code Generator")
 window.geometry("400x200")
 percent = StringVar()
 file = StringVar()
+image = StringVar()
 file_total = StringVar()
 button_status = StringVar()
 file.set('Choose File')
+image.set('Choose Background')
 button_status.set("Create QR Code(s)")
 
 
@@ -103,10 +115,13 @@ adhar.pack()
 
 adharbtn = Button(window,textvariable=file,command=lambda: open_file())
 adharbtn.pack()
+adharbtn = Button(window,textvariable=image,command=lambda: open_logo())
+adharbtn.pack()
 
 
 button = Button(window,textvariable=button_status, command=start)
 button2 = Button(window,textvariable=button_status, command=close)
+
 
 
 
