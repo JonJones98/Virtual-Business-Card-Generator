@@ -64,7 +64,7 @@ def start():
         imp.reload(QR_Code_VCard_WC_copy)
         if percentage >= bar['value']+2:
             bar['value'] = percentage
-            percent.set(str(percentage) + " %")
+             
         window.update_idletasks()
     try:
         bar['value'] = 100

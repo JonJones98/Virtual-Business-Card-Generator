@@ -12,11 +12,6 @@ qr = qrcode.QRCode(
 )
 #Employee Data
 img_type=".jpg"
-with open(Employee_info[13],'rb') as image2string:
-    converted_string = base64.b64encode(image2string.read())
-
-
-
 
 #Setting Vcard
 employee_info= '''BEGIN:VCARD
@@ -34,12 +29,6 @@ qr.add_data(employee_info.format(f_name=Employee_info[1],
                                         linktree=Employee_info[12]
                                         ))
 
-print(Employee_info[1])
-print(Employee_info[3])
-print(Employee_info[7])
-print(Employee_info[8])
-print(Employee_info[12])
-print(Employee_info[13])
 #Creating QR Code
 qr.make(fit=True)
 img = qr.make_image()
@@ -47,13 +36,14 @@ file_name=str(Employee_info[1])+"_"+str(Employee_info[3])+"_"+str(Employee_info[
 fullname=str(Employee_info[1])+"_"+str(Employee_info[2])+"_"+str(Employee_info[3])
 img.save("{num}_Img/{file}".format(num=(str(0)+str(2)) ,file=file_name))
 place='{current_path}/{num}_Img/{file}'
-
+profile="/Users/jonathanjones/Desktop/BR+A Personal Project/BR+A Bussiness Card/04_Profile Image/JonathanJones.jpeg"
 #Adding Location of Logo and QR Code
 print(x)
 if x <= 1:
     y=x-1
     employee_data.loc[y,["@IMG_Location"]] = (place.format(current_path=current_path ,num=(str(0)+str(2)),file=file_name)).replace('/',':')[1:]
     employee_data.loc[y,["@Branch_Logo"]] = (logo.name).replace('/',':')[1:]
+    employee_data.loc[y,["@Profile"]] = (profile).replace('/',':')[1:]
         
 qr.clear()
 
