@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Virtual Card</title>
+    <style>
+      body{
+        display: flex;
+        justify-content: center;
+        align-content: center;
+      }
+      h2{
+        margin: 0;
+        text-align: center;
+      }
+      h3{
+        margin: 0;
+        text-align: center;
+      }
+      #background_img{
+        width: 450px;
+        height: 600px;
+        
+      
+        
+      }
+      #foreground_img{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        
+        
+      }
+      #card {
+        border: 2px solid black;
+        width: 450px;
+        height: 600px;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        background-image: image-set("../03_Logos/Default_Logo3.jpg");
+        background-repeat: no-repeat, repeat;
+        background-size: cover;
+        
+      }
+      #profile {
+        height: 200px;
+        width: 200px;
+        border-radius: 100%;
+        border: 2px solid rgb(67, 67, 67);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      #text-position {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height:max-content;
+        justify-content: center;
+        color: white;
+      }
+      #qrcode {
+        height: fit-content;
+        width: fit-content;
+        border: 2px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="card">
+      <div id="foreground_img">
+          <img id="profile" src="../04_Profile Image/JonathanJones.jpeg" alt="Profile Picture" />
+          <div id="text-position">
+            <h2> First Name</h2>
+            <h2> Last Name </h2>
+            <h3> Role </h3>
+          </div>
+          <img
+          id="qrcode"
+            src="../02_Img/Jonathan_Jones_Full Stack Software Devoloper.jpg"
+            alt="QR Code"
+          />
+      </div>
+    </div>
+     </body>
+</html>
